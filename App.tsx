@@ -1,5 +1,16 @@
-import { Alert, StyleSheet, Text, View, Image } from "react-native";
+import {
+  Alert,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  Button,
+  TouchableOpacity,
+  Pressable,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+
+const onButtonPressed = () => Alert.alert("Button Pressed");
 
 export default function App() {
   return (
@@ -9,11 +20,15 @@ export default function App() {
         style={styles.image1}
       />
 
-      <Image
-        source={{ uri: "https://picsum.photos/200/300" }}
-        style={styles.image2}
-        blurRadius={4}
-      />
+      <TouchableOpacity onPress={onButtonPressed}>
+        <Image
+          source={{ uri: "https://picsum.photos/200/300" }}
+          style={styles.image2}
+          blurRadius={4}
+        />
+      </TouchableOpacity>
+
+      <Button title="Press on me" onPress={onButtonPressed} />
     </SafeAreaView>
   );
 }
