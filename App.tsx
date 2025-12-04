@@ -4,20 +4,12 @@ import { SafeAreaView } from "react-native-safe-area-context";
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <Text
-        style={{
-          fontSize: 50,
-          fontWeight: "bold",
-          fontFamily: "Arial",
-        }}
-      >
-        Title
-      </Text>
+      <Text style={styles.titleText}>Title</Text>
 
-      <Text style={{ fontSize: 20, textAlign: "justify" }} numberOfLines={2}>
+      <Text style={styles.subTitleText}>
         Lorem ipsum dolor sit amet,{" "}
         <Text
-          style={{ color: "red", textDecorationLine: "underline" }}
+          style={styles.redText}
           onPress={() => Alert.alert("Text Pressed")}
         >
           PRESS HERE
@@ -35,5 +27,18 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "white",
+  },
+  titleText: {
+    fontSize: 50,
+    fontWeight: "bold",
+    fontFamily: "Arial",
+  },
+  subTitleText: {
+    fontSize: 20,
+    textAlign: "justify",
+  },
+  redText: {
+    color: "red",
+    textDecorationLine: "underline",
   },
 });
