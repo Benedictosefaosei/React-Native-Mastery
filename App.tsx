@@ -1,31 +1,24 @@
-import { Alert, Dimensions, StyleSheet, Text, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-
-const Phone_Width = Dimensions.get("screen").width;
-const Phone_Height = Dimensions.get("screen").height;
+import { View, Text, Button } from "react-native";
+import { useState } from "react";
 
 export default function App() {
+  const [state, setState] = useState(10);
+
+  const IncreaseVal = () => setState((prevState) => prevState + 1);
+
+  const DecreaseVal = () => setState((prevState) => prevState - 1);
   return (
-    <View style={styles.container}>
-      <View style={styles.container2}>
-        <Text>Hello Benedict</Text>
-      </View>
+    <View
+      style={{
+        backgroundColor: "white",
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <Button title="Increase" onPress={IncreaseVal}></Button>
+      <Text>{state}</Text>
+      <Button title="Decrease" onPress={DecreaseVal}></Button>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "white",
-    justifyContent: "space-between",
-    alignItems: "flex-start",
-  },
-  container2: {
-    width: Phone_Width / 2,
-    height: Phone_Height / 2,
-    backgroundColor: "tomato", // different color
-    borderWidth: 3,
-    borderColor: "black",
-  },
-});
