@@ -1,23 +1,31 @@
-import { Alert, StyleSheet, Text, ActivityIndicator } from "react-native";
+import { Alert, Dimensions, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-const onButtonPressed = () => Alert.alert("Button Pressed");
+const Phone_Width = Dimensions.get("screen").width;
+const Phone_Height = Dimensions.get("screen").height;
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
-      <ActivityIndicator />
-      <ActivityIndicator size={"large"} />
-      <ActivityIndicator size={"large"} color={"brown"} />
-    </SafeAreaView>
+    <View style={styles.container}>
+      <View style={styles.container2}>
+        <Text>Hello Benedict</Text>
+      </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "aqua",
-    justifyContent: "center",
-    alignItems: "center",
+    backgroundColor: "white",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+  },
+  container2: {
+    width: Phone_Width / 2,
+    height: Phone_Height / 2,
+    backgroundColor: "tomato", // different color
+    borderWidth: 3,
+    borderColor: "black",
   },
 });
