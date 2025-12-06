@@ -1,15 +1,31 @@
-import { Text, Button, Modal, ImageBackground } from "react-native";
+import { Text, TextInput, Image, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useState } from "react";
+import AppLogoImage from "./src/components/AppLogoImage";
 
 export default function App() {
-  const [showModal, setShowModal] = useState(false);
+  const [text, setText] = useState("");
+
   return (
-    <ImageBackground
+    <SafeAreaView
       style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
-      source={{
-        uri: "https://media.istockphoto.com/id/846599284/photo/santa-claus-doing-a-wheelie-on-a-motorised-esky-cooler-on-the-beach.jpg?s=612x612&w=0&k=20&c=iWQ0hz5g9sxZlHhMCRWyUN1b7mh8PqtozyVQ85IWaLk=",
-      }}
-    ></ImageBackground>
+    >
+      <TextInput
+        style={{
+          width: "80%",
+          height: 40,
+          borderWidth: 1,
+          borderColor: "grey",
+        }}
+        placeholder="Enter your name"
+        multiline={true}
+        secureTextEntry={true}
+        keyboardType="default"
+        editable
+        value={text}
+        onChangeText={setText}
+      ></TextInput>
+      <AppLogoImage />
+    </SafeAreaView>
   );
 }
