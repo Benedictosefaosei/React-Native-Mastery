@@ -1,24 +1,30 @@
-import { View, Text, Button } from "react-native";
+import { View, Text, Button, Modal } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { useState } from "react";
 
 export default function App() {
-  const [state, setState] = useState(10);
-
-  const IncreaseVal = () => setState((prevState) => prevState + 1);
-
-  const DecreaseVal = () => setState((prevState) => prevState - 1);
+  const [showModal, setShowModal] = useState(false);
   return (
-    <View
+    <SafeAreaView
       style={{
-        backgroundColor: "white",
+        backgroundColor: "gold",
         flex: 1,
         justifyContent: "center",
-        alignItems: "center",
       }}
     >
-      <Button title="Increase" onPress={IncreaseVal}></Button>
-      <Text>{state}</Text>
-      <Button title="Decrease" onPress={DecreaseVal}></Button>
-    </View>
+      <Button title="Open Modal" onPress={() => setShowModal(true)}></Button>
+
+      <Modal visible={showModal} animationType="slide">
+        <Text
+          style={{
+            fontSize: 50,
+            marginTop: 20,
+          }}
+        >
+          Modal is Visible
+        </Text>
+        <Button title="Close Modal" onPress={() => setShowModal(false)} />
+      </Modal>
+    </SafeAreaView>
   );
 }
