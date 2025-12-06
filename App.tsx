@@ -1,37 +1,15 @@
-import { View, Text, Button, Modal } from "react-native";
+import { Text, Button, Modal, ImageBackground } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useState } from "react";
-import AntDesign from "@expo/vector-icons/AntDesign";
 
 export default function App() {
   const [showModal, setShowModal] = useState(false);
   return (
-    <SafeAreaView
-      style={{
-        backgroundColor: "gold",
-        flex: 1,
-        justifyContent: "center",
+    <ImageBackground
+      style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
+      source={{
+        uri: "https://media.istockphoto.com/id/846599284/photo/santa-claus-doing-a-wheelie-on-a-motorised-esky-cooler-on-the-beach.jpg?s=612x612&w=0&k=20&c=iWQ0hz5g9sxZlHhMCRWyUN1b7mh8PqtozyVQ85IWaLk=",
       }}
-    >
-      <Button title="Open Modal" onPress={() => setShowModal(true)}></Button>
-
-      <Modal visible={showModal} animationType="slide">
-        <Text
-          style={{
-            fontSize: 50,
-            marginTop: 20,
-          }}
-        >
-          Modal is Visible
-        </Text>
-        <Button title="Close Modal" onPress={() => setShowModal(false)} />
-        <AntDesign
-          name="close-circle"
-          size={50}
-          color="red"
-          onPress={() => setShowModal(false)}
-        />
-      </Modal>
-    </SafeAreaView>
+    ></ImageBackground>
   );
 }
